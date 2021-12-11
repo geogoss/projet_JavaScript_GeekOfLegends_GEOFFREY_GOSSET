@@ -155,16 +155,32 @@ function guerrierAttaque() {
 }
 function mageAttaque() {
     console.log("C'est au tour de " + mage.nom + " d'attaquer " + theBoss.nom );
-    theBoss.ptVie -= mage.ptAttaque;
-    console.log(mage.nom + " a infligé " + mage.ptAttaque + " points de dégat à " + theBoss.nom);
-    console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
+    if (mage.ptMana == 0) {
+        mage.ptMana += 7;
+        mage.ptVie -= 2;
+        console.log(mage.nom + " n'a plus de flèche, il passe son tour");
+    }
+    else{
+        mage.ptMana -= 5
+        theBoss.ptVie -= mage.ptAttaque;
+        console.log(mage.nom + " a infligé " + mage.ptAttaque + " points de dégat à " + theBoss.nom);
+        console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
+    }
 }
 
 function archerAttaque() {
     console.log("C'est au tour de " + archer.nom + " d'attaquer " + theBoss.nom );
-    theBoss.ptVie -= archer.ptAttaque;
-    console.log(archer.nom + " a infligé " + archer.ptAttaque + " points de dégat à " + theBoss.nom);
-    console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
+    if (archer.fleche == 0) {
+        archer.fleche += 6
+        console.log(archer.nom + " n'a plus de flèche, il passe son tour");
+    }
+    else {
+        archer.fleche -=2
+        archer.fleche ++
+        theBoss.ptVie -= archer.ptAttaque;
+        console.log(archer.nom + " a infligé " + archer.ptAttaque + " points de dégat à " + theBoss.nom);
+        console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);     
+    }
 }
 
 function bossAttaque() {
@@ -197,6 +213,12 @@ function tour() {
         guerrier.ptAttaque *= 1.25
         guerrier.ptAttaque = 0
     }
+
+    // archer et ses flèches
+    // je l'ai fait dans archerAttaque
+
+    // mage et ses mana
+    // Je l'ai fait dans mageAttaque
 
 
 }
