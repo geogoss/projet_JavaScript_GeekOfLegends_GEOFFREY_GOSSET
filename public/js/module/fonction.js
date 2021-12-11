@@ -20,6 +20,25 @@ function choixBoss() {
             break;
     }
 }
+var theHero 
+function choixHero() {
+    let number = Math.round(Math.random()*2);
+    switch (number) {
+        case 0:
+            theHero = guerrier;
+            break;
+        case 1:
+            theHero = mage;
+            break;
+        case 2:
+            theHero = archer;
+            break;
+    
+        default:
+            console.log("Ta fonction ne fonctionne pas !!!");
+            break;
+    }
+}
 
 function choixNomPerso() {
     let nomGuerrier = prompt("Comment veux tu appeler ton guérrier ?")
@@ -128,31 +147,57 @@ function choixMode() {
 }
 
 function guerrierAttaque() {
-    theBoss.ptVie -= guerrier.ptAttaque 
+    console.log(guerrier.nom + " attaque " + theBoss.nom);
+    theBoss.ptVie -= guerrier.ptAttaque;
+    console.log(guerrier.nom + " a infligé " + guerrier.ptAttaque + " points de dégat à " + theBoss.nom);
+    console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
+ 
 }
 function mageAttaque() {
-    theBoss.ptVie -= mage.ptAttaque 
+    console.log("C'est au tour de " + mage.nom + " d'attaquer " + theBoss.nom );
+    theBoss.ptVie -= mage.ptAttaque;
+    console.log(mage.nom + " a infligé " + mage.ptAttaque + " points de dégat à " + theBoss.nom);
+    console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
 }
+
 function archerAttaque() {
-    theBoss.ptVie -= archer.ptAttaque 
+    console.log("C'est au tour de " + archer.nom + " d'attaquer " + theBoss.nom );
+    theBoss.ptVie -= archer.ptAttaque;
+    console.log(archer.nom + " a infligé " + archer.ptAttaque + " points de dégat à " + theBoss.nom);
+    console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
+}
+
+function bossAttaque() {
+    console.log(theBoss.nom + " choisi d'attaquer " + theHero.nom );
+    theHero.ptVie -= theBoss.ptAttaque;
+    console.log(theBoss.nom + " a infligé " + theBoss.ptAttaque + " points de dégat à " + theHero.nom);
+    console.log("Il reste " + theHero.ptVie + " points de vie à " + theHero.nom);
 }
 
 
 function tour() {
-    console.log(guerrier.nom + " attaque " + theBoss.nom );
+    console.log("C'est" + theBoss.nom + " qui va affronter tes 3 héros\nTiens toi prêt!" );
+    console.log("A toi de commencer");
+    // Les héros commencent à attaquer chacun à leur tour le boss
+    // Le guerrier attaque le boss
     guerrierAttaque()
-    console.log(guerrier.nom + " a infligé " + guerrier.ptAttaque + " de dégat à " + theBoss.nom);
-    console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
-
-    console.log("C'est au tour de " + mage.nom + " d'attaquer " + theBoss.nom );
+    // Le mage attaque le boss
     mageAttaque()
-    console.log(mage.nom + " a infligé " + mage.ptAttaque + " de dégat à " + theBoss.nom);
-    console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
-
-    console.log("C'est au tour de " + archer.nom + " d'attaquer " + theBoss.nom );
+    // L'archer attaque le boss
     archerAttaque()
-    console.log(archer.nom + " a infligé " + archer.ptAttaque + " de dégat à " + theBoss.nom);
-    console.log("Il reste " + theBoss.ptVie + " points de vie à " + theBoss.nom);
+    // c'est au tour du boss d'attaquer 1 héro
+    console.log("Cest au tour de " + theBoss.nom + " à faire une attaque sur un des héros");
+    // Le héro est choisi aléatoirement
+    choixHero()
+    bossAttaque()
+    // Les variations de guerrier.rage mage.mana et archer.fleche
+    // guerrier.rage
+    guerrier.ptRage ++
+    if (guerrier.ptRage == 4) {
+        guerrier.ptAttaque *= 1.25
+        guerrier.ptAttaque = 0
+    }
+
 
 }
 
@@ -160,5 +205,5 @@ function tour() {
 
 
 
-export {theBoss, choixBoss, choixNomPerso, pointDeVie, pointAttaque, choixMode, modeDefense, modeAttaque, tour}
+export {theBoss,theHero, choixBoss, choixHero, choixNomPerso, pointDeVie, pointAttaque, choixMode, modeDefense, modeAttaque, tour}
 

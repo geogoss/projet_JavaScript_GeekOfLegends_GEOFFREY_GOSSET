@@ -34,9 +34,9 @@ let guerrier = new Hero("", 50, 50);
 let mage = new Hero("", 10, 10);
 let archer = new Hero("", 500, 500);
 
-guerrier.ptRage = 25;
-mage.ptMana = 10;
-archer.fleche = 10;
+guerrier.ptRage = 3;
+mage.ptMana = 0;
+archer.fleche = 0;
 
 
 export {Boss, Hero, sauron, chronos, lilith, tabBoss, guerrier, mage, archer}
