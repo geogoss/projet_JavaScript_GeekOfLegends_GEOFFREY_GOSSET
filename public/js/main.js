@@ -1,11 +1,17 @@
-import {choixBoss, choixUtilisateur, pointDeVie, pointAttaque, choixMode} from "./module/fonction.js";
+import {theBoss, choixBoss, choixNomPerso, pointDeVie, pointAttaque, choixMode, modeDefense, modeAttaque, tour} from "./module/fonction.js";
 import {Boss, Hero, sauron, chronos, lilith, tabBoss, guerrier, mage, archer} from "./module/classe.js";
 
 
 choixBoss();
-choixUtilisateur();
-console.log(guerrier.nom, mage.nom, archer.nom);
-pointDeVie();
-console.log(guerrier.ptVie, mage.ptVie, archer.ptVie);
+// choixNomPerso();
+// pointDeVie();
+// pointAttaque()
+// console.log(guerrier.nom, mage.nom, archer.nom);
+// console.log(guerrier.ptVie, mage.ptVie, archer.ptVie);
+// console.log(guerrier.ptAttaque, mage.ptAttaque, archer.ptAttaque);
 
+// choixMode()
+// console.log(guerrier, mage, archer);
+
+tour()
 

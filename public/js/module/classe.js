@@ -18,15 +18,6 @@ class Hero{
         this.nom = nom;
         this.ptVie = ptVie;
         this.ptAttaque = ptAttaque;
-        this.defense = () =>{
-            this.ptAttaque = this.ptAttaque * 0.5;
-            this.ptVie = this.ptVie * 2.5;
-        }
-        this.attaque = () =>{
-            this.ptAttaque = this.ptAttaque * 1.4;
-            this.ptVie = this.ptVie * 0.75;
-
-        }
         this.fctGuerrier = ()=>{
 
         }
@@ -39,9 +30,9 @@ class Hero{
     }
 }
 
-let guerrier = new Hero("", 0, 0);
-let mage = new Hero("", 0, 0);
-let archer = new Hero("", 0, 0);
+let guerrier = new Hero("", 50, 50);
+let mage = new Hero("", 10, 10);
+let archer = new Hero("", 500, 500);
 
 guerrier.ptRage = 25;
 mage.ptMana = 10;
