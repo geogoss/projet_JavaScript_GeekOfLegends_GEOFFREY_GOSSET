@@ -30,9 +30,9 @@ class Hero{
     }
 }
 
-let guerrier = new Hero("", 50, 50);
-let mage = new Hero("", 10, 10);
-let archer = new Hero("", 500, 500);
+let guerrier = new Hero("", 100, 9);
+let mage = new Hero("", 100, 19);
+let archer = new Hero("", 100, 17);
 
 guerrier.ptRage = 3;
 mage.ptMana = 0;
